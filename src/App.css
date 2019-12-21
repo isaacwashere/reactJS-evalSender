@@ -22,6 +22,7 @@
   flex-direction: column;
   grid-gap: 30px;
   padding: 35px;
+  flex: 0
 }
 
  .input {
@@ -50,6 +51,12 @@
   border-color: #1b5e20;
   border-radius: 2px;
  }
+
+ .submitButton:active.open {
+  /* background-color: #3e8e41; */
+  box-shadow: 5px 5px pink;
+  transform: translateX(1px);
+}
 
  .questionBox {
    display: flex;
