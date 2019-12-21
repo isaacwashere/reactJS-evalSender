@@ -1,0 +1,71 @@
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color:#078291;
+}
+
+.gr__localhost {
+  background-color: #114b5f;
+}
+
+.parentContainer {
+ display: flex;
+ justify-content: center;
+ padding: 40px;
+}
+
+.userFormContainer {
+  display: flex;
+  background-color: #456990;
+  flex-direction: column;
+  grid-gap: 30px;
+  padding: 35px;
+}
+
+ .input {
+   width: 55px;
+   margin: 8px 0;
+   background-color: #e4fde1;
+ }
+
+ input {
+  background-color: #e4fde1;
+  height: 45px;
+  width: 400px;
+  border-color: #befab7;
+  border-radius: 1px;
+  border-width: 1px;
+  padding-left: 15px;
+ }
+
+ .submitButton {
+  width: 414px;
+  height: 50px;
+  color: white;
+  font-weight: bold;
+  background-color: #f45b69;
+  border-width: 0.5px;
+  border-color: #1b5e20;
+  border-radius: 2px;
+ }
+
+ .questionBox {
+   display: flex;
+   flex-direction: column;
+ }
+
+ .questionItem {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .text {
+  color: #befab7;
+  padding-top: 25px;
+ }
+
+ .btnSubmit {
+   padding-top: 30px;
+ }
