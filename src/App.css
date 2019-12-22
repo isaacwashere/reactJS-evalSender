@@ -6,7 +6,7 @@
   color:#078291;
 }
 
-.gr__localhost {
+body {
   background-color: #114b5f;
 }
 
@@ -42,7 +42,7 @@
  }
 
  .submitButton {
-  width: 414px;
+  width: 418px;
   height: 50px;
   color: white;
   font-weight: bold;
@@ -56,6 +56,11 @@
   /* background-color: #3e8e41; */
   box-shadow: 5px 5px pink;
   transform: translateX(1px);
+}
+
+.submitButton:active.close{
+  background-color: red;
+
 }
 
  .questionBox {
@@ -76,3 +81,13 @@
  .btnSubmit {
    padding-top: 30px;
  }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
