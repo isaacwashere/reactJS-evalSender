@@ -16,7 +16,7 @@ function EvalForm() {
 
   async function sendUserData() {
     try {
-      const res = await axios.post(`http://localhost:3000/create_user`, {
+      const res = await axios.post(`https://eval-app-api.herokuapp.com/create_user`, {
        name: name,
        email: email,
        projectRepo: repo,
@@ -39,7 +39,7 @@ function EvalForm() {
       console.log("SENDING QUESTIONS AND RESPONSES...");
       console.log("QUESTIONS ARE IN FINAL SET ARRAY", finalSet);
       console.log("RESPONSES ARE IN COMPLETED ARRAY", completed)
-      const res = await axios.post(`http://localhost:3000/create_and_send`, {
+      const res = await axios.post(`https://eval-app-api.herokuapp.com/create_and_send`, {
         questions: finalSet,
         responses: completed
       })
