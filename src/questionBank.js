@@ -1,62 +1,62 @@
 const questions = [
     {
-      "id": 3,
+      "client_id": 3,
       "body": "Using best practices for OOP:"
     },
     {
-      "id": 4,
+      "client_id": 4,
       "body": "Modular Development:"
     },
     {
-      "id": 5,
+      "client_id": 5,
       "body": "Full-stack workflow understanding:"
     },
     {
-      "id": 6,
+      "client_id": 6,
       "body": "Testing:"
     },
     {
-      "id": 7,
+      "client_id": 7,
       "body": "Database knowledge:"
     },
     {
-      "id": 8,
+      "client_id": 8,
       "body": "Debugging:"
     },
     {
-      "id": 9,
+      "client_id": 9,
       "body": "Problem Solving Skills:"
     },
     {
-      "id": 10,
+      "client_id": 10,
       "body": "JavaScript:"
     },
     {
-      "id": 11,
+      "client_id": 11,
       "body": "HTML:"
     },
     {
-      "id": 12,
+      "client_id": 12,
       "body": "CSS:"
     },
     {
-      "id": 13,
+      "client_id": 13,
       "body": "Working on a team:"
     },
     {
-      "id": 14,
+      "client_id": 14,
       "body": "Self motivation:"
     },
     {
-      "id": 15,
+      "client_id": 15,
       "body": "Communication skills:"
     },
     {
-      "id": 16,
+      "client_id": 16,
       "body": "Your own energy level:"
     },
     {
-      "id": 17,
+      "client_id": 17,
       "body": "Intelligence/Aptitude:"
     }
   ];

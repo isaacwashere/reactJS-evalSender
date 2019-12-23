@@ -5,8 +5,6 @@ import axios from 'axios';
 
 function EvalForm() {
   const [inputValue, setInputValue] = useState([])
-  const [userData, setUserData] = useState({});
-  const [finalArray, setFinalArray] = useState([])
   const [questions, setQuestions] = useState([]);
   const [name, setName] = useState("");
   const [url, setURL] = useState("");
@@ -15,43 +13,39 @@ function EvalForm() {
   const [disabled, setDisabled] = useState(false);
   const [buttonText, setButtonText] = useState("Submit");
   const [status, setStatus] = useState("");
-  const [responseData, setCompletedResponseData] = useState([])
 
   async function sendUserData() {
     try {
-      const res = await axios.post(`http://localhost:3000/users`, {
+      const res = await axios.post(`http://localhost:3000/create_user`, {
        name: name,
        email: email,
        projectRepo: repo,
        projectURL: url
      });
      let userId = res.data.data.id;
-     let completed = inputValue.map(item => ({...item, user_id: userId}))
+     let completed = inputValue.map(item => ({...item, user_id: userId}));
+     let finalSet = questions.map(item => ({...item, corresp_userid: userId}))
+     console.log("OUR RESPONSE FROM USER DATA", res.data.data)
      setButtonText("Sending...")
      setDisabled(true);
-     sendResponses(completed);
+     sendQuestionsAndResponses(completed, finalSet);
     } catch (error){
       console.log(error)
     }
   }
 
-  async function sendResponses(completed) {
+  async function sendQuestionsAndResponses(completed, finalSet) {
     try {
-      const res = await axios.post(`http://localhost:3000/responses`, {
+      console.log("SENDING QUESTIONS AND RESPONSES...");
+      console.log("QUESTIONS ARE IN FINAL SET ARRAY", finalSet);
+      console.log("RESPONSES ARE IN COMPLETED ARRAY", completed)
+      const res = await axios.post(`http://localhost:3000/create_and_send`, {
+        questions: finalSet,
         responses: completed
       })
-      setCompletedResponseData(res.data)
-      setFinalArray([
-        { name: name,
-          user_id: completed.user_id,
-          email: email,
-          projectRepo: repo,
-          projectURL: url,
-        },
-        {
-          responseList: completed
-        }
-      ])
+      let completedResponses = res.data.data;
+      console.log("OUR RESPONSE FROM RESPONSES", completedResponses);
+      window.location.reload(true);
     } catch (error) {
       console.log(error);
     }
@@ -99,19 +93,19 @@ function EvalForm() {
   }
 
   const handleFinalSubmit = () => {
+    console.log("IN THE FINAL SUBMIT")
     if (name === "" || email ==="" || repo ==="" || url ==="" || inputValue.length !== 15) {
       return null;
     }
     else {
       console.log("MAKING REQUESTS")
       sendUserData(); 
-      sendResponses();
     }
   }
 
   useEffect(() => {
     getQuestions();
-  }, []);
+  });
 
   return(
     <div className="parentContainer">
@@ -134,8 +128,8 @@ function EvalForm() {
             : (<div>
               {questions.map((question) => {
                   return(
-                    <div className="questionItem" key={question.id}>
-                      <span className="text">{question.body} </span><input type="number" id="entry" className="input" min="0" max="50" value={inputValue.body} onChange={(e) => handleValueChange(question.id, e)}/>
+                    <div className="questionItem" key={question.client_id}>
+                      <span className="text">{question.body} </span><input type="number" id="entry" className="input" min="0" max="50" value={inputValue.body} onChange={(e) => handleValueChange(question.client_id, e)}/>
                     </div>
                   )
                 })
